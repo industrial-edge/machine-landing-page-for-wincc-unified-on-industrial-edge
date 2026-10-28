@@ -15,7 +15,7 @@ If you want to change the image so it fits your machine/usecase you can do that 
 The graphic view can be found in the screen "0001_Application".
 In order to change the displayed graphic select the object, click on "Graphic" and click on left button the bottom of the window to select a new graphic from your PC.
 
-![task](docs/graphics/MachineLandingPage_UpdateGraphic.png)
+![task](graphics/MachineLandingPage_UpdateGraphic.png)
 
 ### How to skip entering login credentials
 
@@ -29,21 +29,21 @@ The credentials are stored in the following tags:
 If you want these parameters to be static you have 2 options:
 
 1. Give the tags a start value and remove the corresponding IO fields in the screen "0003_Configuration"
-   ![task](docs/graphics/MachineLandingPage_SetStartValue.png)<br>
+   ![task](graphics/MachineLandingPage_SetStartValue.png)<br>
 This has the benefit to still have a central way of changing the credentials when they i.e. have to be adjusted, however it takes 2 tags which can theoretically be removed
 2. Remove the tags and use static text instead.<br>
    Procedure:
    * Open the screen "1001_ScreenLayout" and select the CWC "RUN_API_1"
    * In the event "Result" of the CWC you can find the script which does all API calls
    * Exchange the "Tags.Read()" calls in line 27, 28, 217 and 218 with the static credentials (iedUser = Username, iedPass = Password)
-   ![task](docs/graphics/MachineLandingPage_ChangeUsrScript.png)
+   ![task](graphics/MachineLandingPage_ChangeUsrScript.png)
    * Open the screen "0003_Configuration" and select the button "txtButtonExecute"
    * In the event "Click left mouse button" you can find another script
    * Exchange the "Tags.Read()" calls in line 6 and 7 with the static credentials (iedUser = Username, iedPass = Password)
 
 ### How to get configured apps/dashboards into the machine overview
 
-![task](docs/graphics/MachineLandingPage_CustomButtonPos.png)
+![task](graphics/MachineLandingPage_CustomButtonPos.png)
 
 Currently there is a separate screen for displaying the configured dashboards.
 This screen is "0004_Dashboards" which consists of (currently) up to 28 buttons and a HTML Browser control
@@ -75,7 +75,7 @@ In addition keep in mind that deleting one configuration after you have already 
 
 The following video shows the issue:
 
-![task](docs/graphics/MachineLandingPage_RemovingIssue.gif)
+![task](graphics/MachineLandingPage_RemovingIssue.gif)
 
 Once you know the configuration you can move the corresponding buttons to their dedicated positions in the machine image.
 
@@ -115,11 +115,11 @@ In addition the app-specific URL parts should be analyzed beforehand (i.e. by ac
 **Example:**
 For PI and EM the "app-specific parts" are "#/my-plant" and "dashboard".
 
-![task](docs/graphics/MachineLandingPage_PIURL.png)
+![task](graphics/MachineLandingPage_PIURL.png)
 
 For MM the "app-specific parts" are "overview" and "current/details".
 
-![task](docs/graphics/MachineLandingPage_MMURL.png)
+![task](graphics/MachineLandingPage_MMURL.png)
 
 Furthermore such apps typically also provide some predefined "System dashboards" like the "OEE" dashboard foe PI or the "Energy media" dashboard for EM.
 You should also have a look at the URL of these dashboards as they may not have an ID but a default URL instead (i.e. for PIs OEE dashboard the URL always just shows "[...]/oee" and no dashboard ID).
@@ -130,17 +130,17 @@ Once you found out the structure of your URL and found out the needed API calls 
 
 The main script can be found on the "Result" event of the CWC which is placed on the main screen.
 
-![task](docs/graphics/MachineLandingPage_MainScript.png)
+![task](graphics/MachineLandingPage_MainScript.png)
 
 At first add the name of your new dashboard app to the "Dashboard Apps"-array which can be found in the global definition area.
 
-![task](docs/graphics/MachineLandingPage_GlobalDef.png)
+![task](graphics/MachineLandingPage_GlobalDef.png)
 
 Depending on the app you may also need to add some array which lists all possible system dashboards (like it is done for EM and PI).
 
 The main workflow of the script starts in line 210 of the script.
 
-![task](docs/graphics/MachineLandingPage_MainWorkflow.png)
+![task](graphics/MachineLandingPage_MainWorkflow.png)
 
 Depending on the response (respId) a new API call is triggered by the CWC (cwc.Execute) which is then further processed.
 At the end of each call a new response is triggered which then calls the next steps and so on.

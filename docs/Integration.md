@@ -13,26 +13,26 @@ Procedure:
 [project folder]/UserFiles/CustomControls<br>
 If the folder "CustomControls" does not exist yet, create it beforehand
 
-![task](docs/graphics/MachineLandingPage_IntegrateCWC.png)
+![task](graphics/MachineLandingPage_IntegrateCWC.png)
 
 * Extract the library and open it in your TIA project
 
-![task](docs/graphics/MachineLandingPage_OpenLib.png)
+![task](graphics/MachineLandingPage_OpenLib.png)
 
 * Copy the color palette from the global library into your project library
 * Open the Runtime Settings and select the color palette "SiemensDark V 0.0.1"
 
-![task](docs/graphics/MachineLandingPage_SelColorPalette.png)
+![task](graphics/MachineLandingPage_SelColorPalette.png)
 
 * Copy the content from "Screens", "TagTable" and "tasks" from "Master copies" into your RT
 
-![task](docs/graphics/MachineLandingPage_InsertCopies.png)
+![task](graphics/MachineLandingPage_InsertCopies.png)
 
 * Open your main screen and copy the content from "CWC" into the screen. Place the CWC outside the visible area of the screen
 
-![task](docs/graphics/MachineLandingPage_InsertCWC.png)
+![task](graphics/MachineLandingPage_InsertCWC.png)
 
 * If you want to access the configuration screen use the screen "1203_ScreenLayout_ThirdNav_Config"
 * If you want to access the display of the configured apps/dashboards use the screen "0004_Dashboards"
 
-![task](docs/graphics/MachineLandingPage_InsertButtons.png)
+![task](graphics/MachineLandingPage_InsertButtons.png)
